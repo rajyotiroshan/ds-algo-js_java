@@ -1,9 +1,8 @@
-import Sort from './Sort';
-
+//import Sort from "./Sort";
+const Sort = require('./Sort');
 /**
  * @description `Test different Sortings algorithms`
  */
-let arr = [4,2,6,1,7,5,4];
+let arr = [1, 2, 3, 5, 4, 6, 7];
 
-let sort  = new Sort(arr);
-console.log(sort.bubble());
+console.log(Sort.bubble(arr));
