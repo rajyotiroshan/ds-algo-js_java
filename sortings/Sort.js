@@ -48,6 +48,37 @@ class Sort {
     console.log(`Total outer iteration:: ${totalOuterIter}`);
     return arr;
   }
+
+  /**
+   * @description 'Insertion Sort'
+   * @param {
+   * []} array
+   * @returns sorted array
+   */
+
+  static insertion(array) {
+    /*     // Write your code here.
+    //[8,5,2,9,5,6,3]
+    //suppose imaginary p
+    //outer loop index point to sorted part last index
+    //so for the first time you have i=0 the first sorted 
+    //part
+    //for the inner part take first element from unsorted part and 
+    //insert it into the right place in the sorted part
+    //so how would you do that
+    // you will first take the elelemt index compare it to the 
+    //left part 
+    //if lesss than swap
+    //once you have an element that is less than exit and move on to the next element */
+    for (let i = 0; i < array.length - 1; i++) {
+      let j = i + 1;
+      while (array[j] < array[j - 1]) {
+        Sort.swap(array, j, j - 1);
+        j--;
+      }
+    }
+    return array;
+  }
 }
 
 module.exports = Sort;
