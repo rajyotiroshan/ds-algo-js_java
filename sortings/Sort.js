@@ -79,6 +79,36 @@ class Sort {
     }
     return array;
   }
+
+  //> dividing into two parts
+  //sorted and unsorted list
+  //initially start with considering the arr as an unsorted list
+  //now iteratively find the smallest no
+  //append it to the sorted list , the firt part
+  //now how appending works
+  // you find the index of the smallest no
+  // and swap it with the first element of the unsorted list
+  //Time complexity: O(n2)
+  //Space complexity; O(1)
+  static selectionSort(array) {
+    // Write your code here.
+    for (let i = 0; i <= array.length - 2; i++) {
+      //
+      //for i=0 you have only one element
+      //which is considered sorted.
+      //in ith iteration you get i element sorted
+      //so the unsorted list start from i
+      let minIndex = i;
+      for (let j = i + 1; j <= array.length - 1; j++) {
+        //unsorted list
+        if (array[minIndex] > array[j]) {
+          minIndex = j;
+        }
+      }
+      Sort.swap(array, i, minIndex);
+    }
+    return array;
+  }
 }
 
 module.exports = Sort;
