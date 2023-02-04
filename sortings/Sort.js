@@ -3,9 +3,7 @@ class Sort {
    * @description 'swap array two position'
    */
   static swap(arr, i, j) {
-    let temp = arr[i];
-    arr[i] = arr[j];
-    arr[j] = temp;
+   [arr[j], arr[i]] = [arr[i], arr[j]];
   }
 
   /**
@@ -109,6 +107,45 @@ class Sort {
     }
     return array;
   }
+
+
+  /**
+   * @description "Quick Sort"
+   */
+  static quickSort(array) {
+    // Write your code here.
+    Sort.#quickSortRec(array, 0, array.length-1)
+    return array
+  }
+  
+  static #quickSortRec(array, sInd, eInd) {
+    if(sInd >= eInd) return;
+    let pInd =  sInd ; //can get random index (sInd, eInd)
+    let lInd = sInd +1
+    let rInd = eInd
+  
+    while(rInd >= lInd) {
+      if(array[lInd] > array[pInd] && array[rInd] < array[pInd]){
+        Sort.swap(array, lInd, rInd)
+      }
+      if(array[lInd] <= array[pInd]){
+        lInd += 1
+      }
+      if(array[rInd] >= array[pInd]){
+        rInd -= 1
+      }
+    }
+    Sort.swap(array,pInd, rInd)
+    let lSubArrSmaller = rInd -1-sInd < eInd -(rInd-1)
+    if(lSubArrSmaller ) {Sort.#quickSortRec(array, sInd,rInd-1)
+    Sort.#quickSortRec(array, rInd+1, eInd)}
+    else {
+      Sort.#quickSortRec(array, rInd+1, eInd)
+      Sort.#quickSortRec(array, sInd,rInd-1)
+    
+    }
+  }
+  
 }
 
 module.exports = Sort;

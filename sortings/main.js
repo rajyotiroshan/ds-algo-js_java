@@ -9,3 +9,4 @@ arr = [2, 3, 5, 5, 6, 8, 9];
 console.log("Using Bubble sort", Sort.bubble(arr));
 console.log("Using insertion sort", Sort.insertion(arr));
 console.log("Using selection sort", Sort.selectionSort(arr));
+console.log("Using Quick sort", Sort.quickSort(arr));
